@@ -15,11 +15,10 @@
 
   <div style="background:white; padding:15px; border-radius:8px; max-width:400px">
 
-    <p><strong>Status:</strong> 🟢 DESCARGA LIVRE</p>
-    <p><strong>Caminhões na fila:</strong> 0</p>
-    <p><strong>Tempo estimado:</strong> DESCARGA IMEDIATA</p>
-    <p><strong>Última atualização:</strong> 10:20</p>
-
+<p><b>Status:</b> 🟢 <span id="status"></span></p>
+<p><b>Caminhões na fila:</b> <span id="caminhoes"></span></p>
+<p><b>Tempo:</b> <span id="tempo"></span></p>
+<p><b>Última atualização:</b> <span id="ultima"></span>
     <a 
       href="https://wa.me/+554599660456" 
       target="_blank"
@@ -38,7 +37,16 @@
     </a>
 
   </div>
-
+<script>
+fetch('dados.json')
+.then(r => r.json())
+.then(d => {
+  document.getElementById("status").innerText = d.status;
+  document.getElementById("caminhoes").innerText = d.caminhoes;
+  document.getElementById("tempo").innerText = d.tempo;
+  document.getElementById("ultima").innerText = d.ultima;
+});
+</script>
 </body>
 </html>
 
